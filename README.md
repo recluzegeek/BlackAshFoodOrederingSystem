@@ -27,4 +27,4 @@ The codebase is well-documented, with clear and concise comments and variable na
 
 ## Demo
 
-Check out the live demo at [Black Ash Restaurant](https://blackash.rf.gd).
+Check out the live demo at [Black Ash Demo](https://blackash.rf.gd).
