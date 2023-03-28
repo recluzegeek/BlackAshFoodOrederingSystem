@@ -18,7 +18,7 @@ if (isset($_POST['login-button'])) {
   if ($_POST['login-button'] == 'customer') {
 
     // Authenticate Customer
-    $stmt = $conn->prepare("SELECT * FROM customer WHERE email=? AND password=?");
+    $stmt = $conn->prepare("SELECT * FROM customer WHERE email=? AND password=SHA2(?,256)");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();

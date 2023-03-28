@@ -1,4 +1,4 @@
-// handling login requests just for chef and manager. customer requests are being handled in login.php located inside the customer directory
+<!-- handling login requests just for chef and manager. customer requests are being handled in login.php located inside the customer directory-->
 <?php
 include 'connection.php';
 session_start();
@@ -13,11 +13,11 @@ $message = 'Invalid Credentials. Please Try again.';
 if (isset($_POST['login-button'])) {
    if ($_POST['login-button'] == 'chef') {
     if ($_SESSION['chef_username'] != null) {
-      header("Location: ../customer/customer.php");
+      header("Location: ../chef/chef.php");
       exit();
     }
     // Authenticate Chef
-    $stmt = $conn->prepare("SELECT * FROM chef WHERE email=? AND password=?");
+    $stmt = $conn->prepare("SELECT * FROM chef WHERE email=? AND password=SHA2(?,256)");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -31,7 +31,7 @@ if (isset($_POST['login-button'])) {
     }
   } elseif ($_POST['login-button'] == 'manager') {
     // Authenticate Manager
-    $stmt = $conn->prepare("SELECT * FROM manager WHERE email=? AND password=?");
+    $stmt = $conn->prepare("SELECT * FROM manager WHERE email=? AND password=SHA2(?,256)");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
