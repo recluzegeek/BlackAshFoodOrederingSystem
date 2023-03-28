@@ -25,18 +25,23 @@ if (isset($result['submitOrder']) && $result['totalBill'] > 0 && !empty($result[
   $total_bill = array_pop($result);
 // inserting order_data
   $stmt = $conn->prepare("INSERT INTO food_order (total_bill) VALUES (?)");
-  $stmt->bind_param("s", $total_bill);
+  $stmt->bind_param("i", $total_bill);
   $stmt->execute();
   $stmt->close();
 
 // Inserting order_details
-  $stmt = $conn->prepare("INSERT INTO adds (cust_id, order_num, item_id, quantity) VALUES (?, ?, ?, ?)");
+  $stmt = $conn->prepare("INSERT INTO adds (cust_id, order_num, item_id) VALUES (?, ?, ?)");
+//  Inserting order_quantity
+  $quantity_stmt = $conn->prepare("INSERT INTO order_quantity (order_num, item_id, quantity) VALUES (?, ?, ?)");
   $order_num = $conn->insert_id;  // this query is giving me the last inserted id
   foreach ($result as $itemId => $quantity) {
-    $stmt->bind_param("ssss", $customer_id, $order_num, $itemId, $quantity);
+    $stmt->bind_param("iii", $customer_id, $order_num, $itemId);
+    $quantity_stmt->bind_param("iii", $order_num, $itemId, $quantity);
     $stmt->execute();
+    $quantity_stmt->execute();
   }
   $stmt->close();
+  $quantity_stmt->close();
 
 //  inserting payment data
   $stmt = $conn->prepare("INSERT INTO payment (account_num) VALUES (?)");

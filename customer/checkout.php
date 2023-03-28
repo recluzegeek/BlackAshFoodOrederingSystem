@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 if (!isset($_SESSION['customer_username'])) {
   $message = 'You are not logged in. You will be redirected to the login page.';
   echo "<script type='text/javascript'>alert('$message');</script>"; // Show an alert message
-  echo '<script>setTimeout(function(){ window.location.href = "./login.html"; }, 100);</script>'; //redirecting user to login.html
+  echo '<script>setTimeout(function(){ window.location.href = "./login.php"; }, 100);</script>'; //redirecting user to login.html
   exit();
 }
 ?>
