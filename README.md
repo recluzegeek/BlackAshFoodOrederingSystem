@@ -15,7 +15,7 @@ The system is based on a relational database schema that includes tables for cus
 
 ## Frontend Design
 
-The frontend is designed using modern web development techniques and frameworks to provide a responsive(partial) and visually appealing user interface.
+The frontend is designed using modern web development techniques and frameworks to provide a responsive (partial) and visually appealing user interface.
 
 ## Scalability
 
