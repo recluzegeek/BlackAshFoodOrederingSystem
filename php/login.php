@@ -2,17 +2,16 @@
 <?php
 include 'connection.php';
 session_start();
-$username = trim($_POST['email']);
-$password = trim($_POST['password']);
-
-// Sanitizing User Input
-$username = mysqli_real_escape_string($conn, $username);
-$password = mysqli_real_escape_string($conn, $password);
-$message = 'Invalid Credentials. Please Try again.';
 
 if (isset($_POST['login-button'])) {
+  if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+  }
+  $message = 'Invalid username or password. You will be redirected to the login page.';
+
    if ($_POST['login-button'] == 'chef') {
-    if ($_SESSION['chef_username'] != null) {
+    if (isset($_SESSION['chef_username'])) {
       header("Location: ../chef/chef.php");
       exit();
     }
@@ -45,4 +44,3 @@ if (isset($_POST['login-button'])) {
     }
   }
 }
-

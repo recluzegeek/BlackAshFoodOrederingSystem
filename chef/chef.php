@@ -1,10 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['chef_username'])){
-  $message = 'You are not logged in. You will be redirected to the login page.';
-  echo "<script type='text/javascript'>alert('$message');</script>"; // Show an alert message
-echo '<script>setTimeout(function(){ window.location.href = "./login.html"; }, 100);</script>'; //redirecting user to login.html
-exit();}
+//if (!isset($_SESSION['chef_username'])){
+//  $message = 'You are not logged in. You will be redirected to the login page.';
+//  echo "<script type='text/javascript'>alert('$message');</script>"; // Show an alert message
+//echo '<script>setTimeout(function(){ window.location.href = "./login.html"; }, 100);</script>'; //redirecting user to login.html
+//exit();}
 ?>
 
 <html lang="en">
