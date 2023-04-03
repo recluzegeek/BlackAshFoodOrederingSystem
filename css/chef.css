@@ -99,9 +99,9 @@ header {
   background-color: #b1dae7;
 }
 
-header:hover {
-  background-color: #b8c4c4;
-}
+/*header:hover {*/
+/*  background-color: #b8c4c4;*/
+/*}*/
 
 .header-title {
   margin: 0;

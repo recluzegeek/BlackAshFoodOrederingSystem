@@ -1,8 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
   session_start();
-}
-
 if (!isset($_SESSION['customer_username'])) {
   $message = 'You are not logged in. You will be redirected to the login page.';
   echo "<script type='text/javascript'>alert('$message');</script>"; // Show an alert message
@@ -664,6 +661,11 @@ if (!isset($_SESSION['customer_username'])) {
                   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235 nav-item">
                     <a itemprop="url" href="#" class="nav-link">
                       <span itemprop="name">Account</span>
+                    </a>
+                  </li>
+                    <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235 nav-item">
+                    <a itemprop="url" href="./order_history.php" class="nav-link">
+                      <span itemprop="name">Order History</span>
                     </a>
                   </li>
                   <li id="menu-item-296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-296 nav-item">

@@ -3,7 +3,7 @@ include "../php/connection.php";
 session_start();
 if (isset($_SESSION['customer_username'])) {
   // Redirect to the customer dashboard
-  header("Location: ../customer/customer.php");
+  header("Location: ./customer.php");
   exit();
 }
 
@@ -27,10 +27,10 @@ if (isset($_POST['login-button'])) {
       // Set a session variable to remember the customer
       $_SESSION['customer_username'] = $username;
       // Redirect to the customer dashboard or home page
-      header("Location: ../customer/customer.php");
+      header("Location: ./customer.php");
     } else {
       echo "<script type='text/javascript'>alert('$message');</script>"; // Show an alert message
-      echo '<script>setTimeout(function(){ window.location.href = "../customer/login.php"; }, 100);</script>'; //redirecting user to login.html
+      echo '<script>setTimeout(function(){ window.location.href = "./login.php"; }, 100);</script>'; //redirecting user to login.php
     }
   }
 }

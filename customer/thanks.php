@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['customer_username'])) {
   $message = 'You are not logged in. You will be redirected to the login page.';
   echo "<script type='text/javascript'>alert('$message');</script>"; // Show an alert message
-  echo '<script>setTimeout(function(){ window.location.href = "./login.php"; }, 100);</script>'; //redirecting user to login.html
+  echo '<script>setTimeout(function(){ window.location.href = "./login.php"; }, 100);</script>'; //redirecting user to login.php
   exit();
 }
 ?>
@@ -46,13 +46,13 @@ if (!isset($_SESSION['customer_username'])) {
 
     .cta {
       background-color: #ffc107;
-      border-radius: 5px;
+      border-radius: 15px;
       color: #3d3d3d;
       display: inline-block;
       font-size: 1.2rem;
       padding: 10px 20px;
       text-decoration: none;
-      transition: all 0.2s ease-in-out;
+      border-style: none;
     }
 
     .cta:hover {
